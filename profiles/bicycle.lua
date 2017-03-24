@@ -19,6 +19,9 @@ properties.weight_name                   = 'duration'
 local default_speed = 15
 local walking_speed = 6
 
+local oneway_multiplier = 1.2
+local truck_route_multiplier = 0.8
+
 local profile = {
   default_mode              = mode.cycling,
   default_speed             = 15,
@@ -103,21 +106,32 @@ local profile = {
   },
 
   bicycle_speeds = {
-    cycleway = default_speed,
-    primary = default_speed,
-    primary_link = default_speed,
-    secondary = default_speed,
-    secondary_link = default_speed,
+    cycleway = default_speed * 1.51,
+    primary = default_speed * 0.72,
+    primary_link = default_speed * 0.72,
+    secondary = default_speed * 0.75,
+    secondary_link = default_speed * 0.75,
     tertiary = default_speed,
     tertiary_link = default_speed,
-    residential = default_speed,
-    unclassified = default_speed,
-    living_street = default_speed,
+    residential = default_speed * 1.16,
+    unclassified = default_speed * 0.6,
+    living_street = default_speed * 1.2,
     road = default_speed,
     service = default_speed,
     track = 12,
     path = 12
   },
+
+  cycleway_modifiers = {
+    shared = 1.0,
+    opposite = 1.0,
+    sharrow = 1.0,
+    share_busway = 1.1,
+    opposite_lane = 1.1,
+    lane = 1.2,
+    opposite_track = 1.4,
+    track = 1.5
+  }
 
   pedestrian_speeds = {
     footway = walking_speed,
@@ -302,6 +316,7 @@ function way_function (way, result)
   local barrier = way:get_value_by_key("barrier")
   local oneway = way:get_value_by_key("oneway")
   local onewayClass = way:get_value_by_key("oneway:bicycle")
+  local truck_route = way:get_value_by_key("hgv")
   local cycleway = way:get_value_by_key("cycleway")
   local cycleway_left = way:get_value_by_key("cycleway:left")
   local cycleway_right = way:get_value_by_key("cycleway:right")
@@ -409,7 +424,7 @@ function way_function (way, result)
     if impliedOneway then
       result.forward_mode = mode.inaccessible
       result.backward_mode = mode.cycling
-      result.backward_speed = profile.bicycle_speeds["cycleway"]
+      result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway]
     end
   elseif cycleway_left and profile.cycleway_tags[cycleway_left] and cycleway_right and profile.cycleway_tags[cycleway_right] then
     -- prevent implied
@@ -417,12 +432,12 @@ function way_function (way, result)
     if impliedOneway then
       result.forward_mode = mode.inaccessible
       result.backward_mode = mode.cycling
-      result.backward_speed = profile.bicycle_speeds["cycleway"]
+      result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway]
     end
   elseif cycleway_right and profile.cycleway_tags[cycleway_right] then
     if impliedOneway then
       result.forward_mode = mode.cycling
-      result.backward_speed = profile.bicycle_speeds["cycleway"]
+      result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway]
       result.backward_mode = mode.inaccessible
     end
   elseif oneway == "-1" then
@@ -446,14 +461,14 @@ function way_function (way, result)
 
   -- cycleways
   if cycleway and profile.cycleway_tags[cycleway] then
-    result.forward_speed = profile.bicycle_speeds["cycleway"]
-    result.backward_speed = profile.bicycle_speeds["cycleway"]
+    result.forward_speed = result.forward_speed * profile.cycleway_modifiers[cycleway]
+    result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway]
   elseif cycleway_left and profile.cycleway_tags[cycleway_left] then
-    result.forward_speed = profile.bicycle_speeds["cycleway"]
-    result.backward_speed = profile.bicycle_speeds["cycleway"]
+    result.forward_speed = result.forward_speed * profile.cycleway_modifiers[cycleway_left]
+    result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway_left]
   elseif cycleway_right and profile.cycleway_tags[cycleway_right] then
-    result.forward_speed = profile.bicycle_speeds["cycleway"]
-    result.backward_speed = profile.bicycle_speeds["cycleway"]
+    result.forward_speed = result.forward_speed * profile.cycleway_modifiers[cycleway_right]
+    result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway_right]
   end
 
   -- dismount
@@ -464,6 +479,15 @@ function way_function (way, result)
     result.backward_speed = walking_speed
   end
 
+  if onewayClass == "yes" or onewayClass == "1" or onewayClass == "true" or oneway == "yes" or oneway == "1" or oneway == "true" then
+    result.forward_speed = result.forward_speed * oneway_multiplier
+    result.backward_speed = result.backward_speed * oneway_multiplier
+  end
+
+  if truck_route == "local" or truck_route == "destination" or truck_route == "designated" then
+    result.forward_speed = result.forward_speed * truck_route_multiplier
+    result.backward_speed = result.backward_speed * truck_route_multiplier
+  end
 
   -- maxspeed
   limit( result, maxspeed, maxspeed_forward, maxspeed_backward )
