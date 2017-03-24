@@ -64,7 +64,8 @@ local profile = {
    	'private',
    	'agricultural',
    	'forestry',
-   	'delivery'
+   	'delivery',
+    'destination'
   },
 
   restricted_access_tag_list = Set { },
