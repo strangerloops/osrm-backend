@@ -432,12 +432,12 @@ function way_function (way, result)
     if impliedOneway then
       result.forward_mode = mode.inaccessible
       result.backward_mode = mode.cycling
-      result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway]
+      result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway_left]
     end
   elseif cycleway_right and profile.cycleway_tags[cycleway_right] then
     if impliedOneway then
       result.forward_mode = mode.cycling
-      result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway]
+      result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway_right]
       result.backward_mode = mode.inaccessible
     end
   elseif oneway == "-1" then
