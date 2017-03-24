@@ -131,7 +131,7 @@ local profile = {
     lane = 1.2,
     opposite_track = 1.4,
     track = 1.5
-  }
+  },
 
   pedestrian_speeds = {
     footway = walking_speed,
