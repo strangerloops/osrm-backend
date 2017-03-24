@@ -1,0 +1,10 @@
+https://developers.google.com/maps/documentation/utilities/polylineutility
+
+BRL to court square (navy yard): http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
+
+home to thoughtworks           : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
+thoughtworks to home           : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
+home to BRL                    : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
+BRL to home                    : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
+home to navy yard              : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
+navy yard to home              : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
