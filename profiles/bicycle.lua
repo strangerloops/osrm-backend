@@ -446,18 +446,7 @@ function way_function (way, result)
     result.backward_mode = mode.inaccessible
   end
 
-  -- pushing bikes
-  if profile.bicycle_speeds[data.highway] or profile.pedestrian_speeds[data.highway] then
-    if foot ~= "no" and junction ~= "roundabout" and junction ~= "circular" then
-      if result.backward_mode == mode.inaccessible then
-        result.backward_speed = walking_speed
-        result.backward_mode = mode.pushing_bike
-      elseif result.forward_mode == mode.inaccessible then
-        result.forward_speed = walking_speed
-        result.forward_mode = mode.pushing_bike
-      end
-    end
-  end
+  
 
   -- cycleways
   if cycleway and profile.cycleway_tags[cycleway] then
@@ -471,14 +460,6 @@ function way_function (way, result)
     result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway_right]
   end
 
-  -- dismount
-  if bicycle == "dismount" then
-    result.forward_mode = mode.pushing_bike
-    result.backward_mode = mode.pushing_bike
-    result.forward_speed = walking_speed
-    result.backward_speed = walking_speed
-  end
-
   if onewayClass == "yes" or onewayClass == "1" or onewayClass == "true" or oneway == "yes" or oneway == "1" or oneway == "true" then
     result.forward_speed = result.forward_speed * oneway_multiplier
     result.backward_speed = result.backward_speed * oneway_multiplier
@@ -487,6 +468,27 @@ function way_function (way, result)
   if truck_route == "local" or truck_route == "destination" or truck_route == "designated" then
     result.forward_speed = result.forward_speed * truck_route_multiplier
     result.backward_speed = result.backward_speed * truck_route_multiplier
+  end
+
+  -- pushing bikes
+  if profile.bicycle_speeds[data.highway] or profile.pedestrian_speeds[data.highway] then
+    if foot ~= "no" and junction ~= "roundabout" and junction ~= "circular" then
+      if result.backward_mode == mode.inaccessible then
+        result.backward_speed = walking_speed
+        result.backward_mode = mode.pushing_bike
+      elseif result.forward_mode == mode.inaccessible then
+        result.forward_speed = walking_speed
+        result.forward_mode = mode.pushing_bike
+      end
+    end
+  end
+
+  -- dismount
+  if bicycle == "dismount" then
+    result.forward_mode = mode.pushing_bike
+    result.backward_mode = mode.pushing_bike
+    result.forward_speed = walking_speed
+    result.backward_speed = walking_speed
   end
 
   -- maxspeed

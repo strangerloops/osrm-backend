@@ -1,6 +1,9 @@
-old profile
+old profiles
 
+**
+pbr-chi
 ***
+
 ubuntu@ip-172-31-28-134:~/osrm-backend/profiles$ cat bicyclepbr.lua
 -- Bicycle profile
 
@@ -454,3 +457,8 @@ function turn_function (angle)
     return angle*angle*k*turn_bias
   end
 end
+
+***
+pbr-nyc
+***
+

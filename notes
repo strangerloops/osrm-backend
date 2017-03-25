@@ -1,10 +1,23 @@
 https://developers.google.com/maps/documentation/utilities/polylineutility
 
-BRL to court square (navy yard): http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
+BRL to court square (navy yard): http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892 / "g`jwFzurbM~@\vh@{iBdEm\}GeBcaB|Rx@ks@mAwNuM}@wVt\qNtEwWf@sa@kNiq@us@uKiAT~Fct@|GiBsl@cQ|@ew@wQpDk[qLsCl@oF"
 
-home to thoughtworks           : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
-thoughtworks to home           : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
-home to BRL                    : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
-BRL to home                    : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
-home to navy yard              : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
-navy yard to home              : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892
+home        : -73.9240875,40.6972668
+thoughtworks: -73.9848745,40.7446828
+brl         : -73.993003,40.6889011
+navy yard   : -73.9747897,40.6979747
+
+home to thoughtworks           : http://34.208.243.221:5000/route/v1/bike/-73.9240875,40.6972668;-73.9848745,40.7446828 / "wukwFvgebMdLdJgHnOqSlZq[~LnEdy@_ZfCfBna@yUx}@tBjB{k@fwCaHoAwGv[wT{HqgBekA}Vxw@"
+
+thoughtworks to home           : http://34.208.243.221:5000/route/v1/bike/-73.9848745,40.7446828;-73.9240875,40.6972668 /
+"g|twFfeqbMoCg@xQ}k@boBrqA~HmVhO~FrCiNdGfCjn@e~CaE}HtScw@eD}u@zYqCN{J}Eyb@rNkC~@bD`a@wz@"
+
+home to BRL                    : http://34.208.243.221:5000/route/v1/bike/-73.9240875,40.6972668;-73.993003,40.6889011 /
+"wukwFvgebMgCtGjYdZlJrbBtLwA`MpxBnC]zI|rAjGlDq`@juA~@^"
+BRL to home                    : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.6889011;-73.9240875,40.6972668 /
+"g`jwFzurbM~@\zPgl@{JaGhOmf@eCy\u@gAaQu{CiQtBkK_kBsC\yHcH^}@mNcXtD_I"
+
+home to navy yard              : http://34.208.243.221:5000/route/v1/bike/-73.9240875,40.6972668;-73.9747897,40.6979747 /
+"wukwFvgebMRc@pKhKgHnOgHxHhFvJpG|G~Xb{EYjXk[rDGdEuIdA"
+navy yard to home              : http://34.208.243.221:5000/route/v1/bike/-73.9747897,40.6979747;-73.9240875,40.6972668 /
+"iykwFleobMAeEjf@yFXkX_Yc{EuIaKe@yIuH_O~IiR"
