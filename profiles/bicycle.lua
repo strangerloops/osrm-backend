@@ -28,7 +28,7 @@ local profile = {
   oneway_handling           = true,
   traffic_light_penalty     = 2,
   u_turn_penalty            = 20,
-  turn_penalty              = 25,
+  turn_penalty              = 20,
   turn_bias                 = 1.4,
 
   -- reduce the driving speed by 30% for unsafe roads
@@ -107,10 +107,10 @@ local profile = {
 
   bicycle_speeds = {
     cycleway = default_speed * 1.51,
-    primary = default_speed * 0.8,
-    primary_link = default_speed * 0.8,
-    secondary = default_speed * 0.85,
-    secondary_link = default_speed * 0.85,
+    primary = default_speed * 0.78,
+    primary_link = default_speed * 0.78,
+    secondary = default_speed * 0.81,
+    secondary_link = default_speed * 0.81,
     tertiary = default_speed,
     tertiary_link = default_speed,
     residential = default_speed * 1.1,
