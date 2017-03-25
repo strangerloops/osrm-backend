@@ -472,7 +472,7 @@ function way_function (way, result)
 
   -- pushing bikes
   if profile.bicycle_speeds[data.highway] or profile.pedestrian_speeds[data.highway] then
-    if foot ~= "no" and junction ~= "roundabout" and junction ~= "circular" then
+    -- if foot ~= "no" and junction ~= "roundabout" and junction ~= "circular" then
       if result.backward_mode == mode.inaccessible then
         result.backward_speed = walking_speed
         result.backward_mode = mode.pushing_bike
@@ -480,7 +480,7 @@ function way_function (way, result)
         result.forward_speed = walking_speed
         result.forward_mode = mode.pushing_bike
       end
-    end
+    -- end
   end
 
   -- dismount
