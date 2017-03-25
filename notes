@@ -22,5 +22,29 @@ home to navy yard              : http://34.208.243.221:5000/route/v1/bike/-73.92
 navy yard to home              : http://34.208.243.221:5000/route/v1/bike/-73.9747897,40.6979747;-73.9240875,40.6972668 /
 ""
 
-dekalb has cycleway:left
-do the oneway check FIRST
+***********
+^^^   turn penalty = 6   ^^^
+vvv   turn penalty = 60  vvv
+***********
+
+BRL to court square (via navy yard): http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892 / ""
+
+home        : -73.9240875,40.6972668
+thoughtworks: -73.9848745,40.7446828
+brl         : -73.993003,40.6889011
+navy yard   : -73.9747897,40.6979747
+
+home to thoughtworks           : http://34.208.243.221:5000/route/v1/bike/-73.9240875,40.6972668;-73.9848745,40.7446828 / ""
+
+thoughtworks to home           : http://34.208.243.221:5000/route/v1/bike/-73.9848745,40.7446828;-73.9240875,40.6972668 /
+""
+
+home to BRL                    : http://34.208.243.221:5000/route/v1/bike/-73.9240875,40.6972668;-73.993003,40.6889011 /
+"wukwFvgebMRc@zQnQyDpIlG|FxRhkD|HCx`A_L~InBmX~yBmj@pnBiE_B"
+BRL to home                    : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.6889011;-73.9240875,40.6972668 /
+"g`jwFzurbM~@\vh@{iBdEm\}GeBwy@bKFk^mXcuEuIaKe@yIuH_O~IiR"
+
+home to navy yard              : http://34.208.243.221:5000/route/v1/bike/-73.9240875,40.6972668;-73.9747897,40.6979747 /
+""
+navy yard to home              : http://34.208.243.221:5000/route/v1/bike/-73.9747897,40.6979747;-73.9240875,40.6972668 /
+""
