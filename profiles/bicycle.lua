@@ -412,15 +412,7 @@ function way_function (way, result)
     impliedOneway = true
   end
 
-  if onewayClass == "yes" or onewayClass == "1" or onewayClass == "true" then
-    result.backward_mode = mode.inaccessible
-  elseif onewayClass == "no" or onewayClass == "0" or onewayClass == "false" then
-    -- prevent implied oneway
-  elseif onewayClass == "-1" then
-    result.forward_mode = mode.inaccessible
-  elseif oneway == "no" or oneway == "0" or oneway == "false" then
-    -- prevent implied oneway
-  elseif cycleway and string.find(cycleway, "opposite") == 1 then
+  if cycleway and string.find(cycleway, "opposite") == 1 then
     if impliedOneway then
       result.forward_mode = mode.inaccessible
       result.backward_mode = mode.cycling
@@ -440,13 +432,16 @@ function way_function (way, result)
       result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway_right]
       result.backward_mode = mode.inaccessible
     end
-  elseif oneway == "-1" then
-    result.forward_mode = mode.inaccessible
-  elseif oneway == "yes" or oneway == "1" or oneway == "true" or impliedOneway then
-    result.backward_mode = mode.inaccessible
   end
 
-  
+  if onewayClass == 'no' or onewayClass == 'false' then
+    result.forward_mode = mode.cycling
+    result.backward_mode = mode.cycling
+  elseif onewayClass == "yes" or onewayClass == "1" or onewayClass == "true" or oneway == "yes" or oneway == "1" or oneway == "true" or impliedOneway then
+    result.backward_mode = mode.inaccessible
+  elseif onewayClass == "-1" or oneway == "-1" then
+    result.forward_mode = mode.inaccessible
+  end
 
   -- cycleways
   if cycleway and profile.cycleway_tags[cycleway] then
