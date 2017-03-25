@@ -19,8 +19,8 @@ properties.weight_name                   = 'duration'
 local default_speed = 15
 local walking_speed = 6
 
-local oneway_multiplier = 1.15
-local truck_route_multiplier = 0.82
+local oneway_multiplier = 1.2
+local truck_route_multiplier = 0.8
 
 local profile = {
   default_mode              = mode.cycling,
@@ -28,7 +28,7 @@ local profile = {
   oneway_handling           = true,
   traffic_light_penalty     = 2,
   u_turn_penalty            = 20,
-  turn_penalty              = 30,
+  turn_penalty              = 25,
   turn_bias                 = 1.4,
 
   -- reduce the driving speed by 30% for unsafe roads
