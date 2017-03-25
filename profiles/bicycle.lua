@@ -28,7 +28,7 @@ local profile = {
   oneway_handling           = true,
   traffic_light_penalty     = 2,
   u_turn_penalty            = 20,
-  turn_penalty              = 6,
+  turn_penalty              = 60,
   turn_bias                 = 1.4,
 
   -- reduce the driving speed by 30% for unsafe roads
