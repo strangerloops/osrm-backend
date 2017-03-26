@@ -19,7 +19,7 @@ properties.weight_name                   = 'duration'
 local default_speed = 15
 local walking_speed = 6
 
-local oneway_multiplier = 1.2
+local oneway_multiplier = 1.25
 local truck_route_multiplier = 0.8
 
 local profile = {
@@ -107,13 +107,13 @@ local profile = {
 
   bicycle_speeds = {
     cycleway = default_speed * 1.51,
-    primary = default_speed * 0.78,
+    primary = default_speed * 0.65,
     primary_link = default_speed * 0.65,
-    secondary = default_speed * 0.75,
-    secondary_link = default_speed * 0.75,
+    secondary = default_speed * 0.70,
+    secondary_link = default_speed * 0.70,
     tertiary = default_speed,
     tertiary_link = default_speed,
-    residential = default_speed * 1.1,
+    residential = default_speed * 1.15,
     unclassified = default_speed * 0.6,
     living_street = default_speed * 1.2,
     road = default_speed,
