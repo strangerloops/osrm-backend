@@ -28,7 +28,7 @@ local profile = {
   oneway_handling           = true,
   traffic_light_penalty     = 2,
   u_turn_penalty            = 20,
-  turn_penalty              = 0,
+  turn_penalty              = 8,
   turn_bias                 = 1.4,
 
   -- reduce the driving speed by 30% for unsafe roads
@@ -549,10 +549,10 @@ function turn_function(turn)
   if turn.has_traffic_light then
      turn.duration = turn.duration + profile.traffic_light_penalty
   end
-  if properties.weight_name == 'cyclability' then
-      -- penalize turns from non-local access only segments onto local access only tags
-      if not turn.source_restricted and turn.target_restricted then
-          turn.weight = turn.weight + 3000
-      end
-  end
+  -- if properties.weight_name == 'cyclability' then
+  --     -- penalize turns from non-local access only segments onto local access only tags
+  --     if not turn.source_restricted and turn.target_restricted then
+  --         turn.weight = turn.weight + 3000
+  --     end
+  -- end
 end
