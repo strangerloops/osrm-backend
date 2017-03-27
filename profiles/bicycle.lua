@@ -28,7 +28,7 @@ local profile = {
   oneway_handling           = true,
   traffic_light_penalty     = 2,
   u_turn_penalty            = 20,
-  turn_penalty              = 6,
+  turn_penalty              = 0,
   turn_bias                 = 1.4,
 
   -- reduce the driving speed by 30% for unsafe roads
@@ -537,7 +537,7 @@ function turn_function(turn)
   -- compute turn penalty as angle^2, with a left/right bias
   local normalized_angle = turn.angle / 90.0
   if normalized_angle >= 0.0 then
-    turn.duration = normalized_angle * normalized_angle * profile.turn_penalty / profile.turn_bias
+    turn.duration = normalized_angle * normalized_angle * profile.turn_penalty / profile.turn_bi0s
   else
     turn.duration = normalized_angle * normalized_angle * profile.turn_penalty * profile.turn_bias
   end
