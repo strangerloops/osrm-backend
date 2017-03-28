@@ -96,6 +96,13 @@ local profile = {
   	'shared'
   },
 
+  dedicated_infra = Set {
+    'track',
+    'lane',
+    'opposite_lane',
+    'opposite_track'
+  },
+
   unsafe_highway_list = Set {
   	'primary',
    	'secondary',
@@ -107,10 +114,10 @@ local profile = {
 
   bicycle_speeds = {
     cycleway = default_speed * 1.51,
-    primary = default_speed * 0.65,
-    primary_link = default_speed * 0.65,
-    secondary = default_speed * 0.70,
-    secondary_link = default_speed * 0.70,
+    primary = default_speed * 0.70,
+    primary_link = default_speed * 0.70,
+    secondary = default_speed * 0.75,
+    secondary_link = default_speed * 0.75,
     tertiary = default_speed,
     tertiary_link = default_speed,
     residential = default_speed * 1.15,
@@ -455,12 +462,16 @@ function way_function (way, result)
     result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway_right]
   end
 
-  if onewayClass == "yes" or onewayClass == "1" or onewayClass == "true" or oneway == "yes" or oneway == "1" or oneway == "true" then
+  local is_oneway = onewayClass == "yes" or onewayClass == "1" or onewayClass == "true" or oneway == "yes" or oneway == "1" or oneway == "true"
+  local is_truck_route = truck_route == "local" or truck_route == "destination" or truck_route == "designated" then
+  local has_bike_lane = profile.dedicated_infra[cycleway] or profile.dedicated_infra[cycleway_left] or profile.dedicated_infra[cycleway_right]
+
+  if is_oneway then
     result.forward_speed = result.forward_speed * oneway_multiplier
     result.backward_speed = result.backward_speed * oneway_multiplier
   end
 
-  if truck_route == "local" or truck_route == "destination" or truck_route == "designated" then
+  if is_truck_route and (!has_bike_lane or !is_oneway) then
     result.forward_speed = result.forward_speed * truck_route_multiplier
     result.backward_speed = result.backward_speed * truck_route_multiplier
   end
@@ -512,8 +523,6 @@ function way_function (way, result)
     end
   end
 
-
-
   local handlers = Sequence {
     -- compute speed taking into account way type, maxspeed tags, etc.
     'handle_surface',
@@ -546,13 +555,13 @@ function turn_function(turn)
     turn.duration = turn.duration + profile.u_turn_penalty
   end
 
-  -- if turn.has_traffic_light then
-  --    turn.duration = turn.duration + profile.traffic_light_penalty
-  -- end
-  -- if properties.weight_name == 'cyclability' then
-  --     -- penalize turns from non-local access only segments onto local access only tags
-  --     if not turn.source_restricted and turn.target_restricted then
-  --         turn.weight = turn.weight + 3000
-  --     end
-  -- end
+  if turn.has_traffic_light then
+     turn.duration = turn.duration + profile.traffic_light_penalty
+  end
+  if properties.weight_name == 'cyclability' then
+      -- penalize turns from non-local access only segments onto local access only tags
+      if not turn.source_restricted and turn.target_restricted then
+          turn.weight = turn.weight + 3000
+      end
+  end
 end

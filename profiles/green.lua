@@ -107,10 +107,10 @@ local profile = {
 
   bicycle_speeds = {
     cycleway = default_speed * 1.51,
-    primary = default_speed * 0.60,
-    primary_link = default_speed * 0.60,
-    secondary = default_speed * 0.65,
-    secondary_link = default_speed * 0.65,
+    primary = default_speed * 0.65,
+    primary_link = default_speed * 0.65,
+    secondary = default_speed * 0.70,
+    secondary_link = default_speed * 0.70,
     tertiary = default_speed,
     tertiary_link = default_speed,
     residential = default_speed * 1.2,
