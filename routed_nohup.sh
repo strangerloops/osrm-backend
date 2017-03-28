@@ -1,2 +1,2 @@
 cd osrm-backend/build
-./osrm-routed new-york_new-york.osrm
+nohup ./osrm-routed new-york_new-york.osrm

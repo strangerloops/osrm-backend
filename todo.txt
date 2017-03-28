@@ -1,0 +1,3 @@
+specify port with ./osrm-routed new-york_new-york.osrm -p 1234
+have 1 repo with 3 profiles
+diff scripts to build them from scratch, start them, stop them
