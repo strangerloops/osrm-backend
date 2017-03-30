@@ -20,7 +20,7 @@ local default_speed = 15
 local walking_speed = 6
 
 local oneway_multiplier = 1.25
-local truck_route_multiplier = 1.0
+local truck_route_multiplier = 0.8
 
 local profile = {
   default_mode              = mode.cycling,
@@ -116,8 +116,8 @@ local profile = {
     cycleway = default_speed * 1.51,
     primary = default_speed * 0.70,
     primary_link = default_speed * 0.70,
-    secondary = default_speed * 5.0,
-    secondary_link = default_speed * 5.0,
+    secondary = default_speed * 0.75,
+    secondary_link = default_speed * 0.75,
     tertiary = default_speed,
     tertiary_link = default_speed,
     residential = default_speed * 1.10,
