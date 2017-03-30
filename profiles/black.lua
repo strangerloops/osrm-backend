@@ -28,7 +28,7 @@ local profile = {
   oneway_handling           = true,
   traffic_light_penalty     = 2,
   u_turn_penalty            = 20,
-  turn_penalty              = 6,
+  turn_penalty              = 12,
   turn_bias                 = 1.4,
 
   -- reduce the driving speed by 30% for unsafe roads
@@ -466,7 +466,7 @@ function way_function (way, result)
   local is_truck_route = truck_route == "local" or truck_route == "destination" or truck_route == "designated"
   local has_bike_lane = profile.dedicated_infra[cycleway] or profile.dedicated_infra[cycleway_left] or profile.dedicated_infra[cycleway_right]
 
-  if is_oneway then
+  if is_oneway and (data.highway == 'residential' or has_bike_lane) then
     result.forward_speed = result.forward_speed * oneway_multiplier
     result.backward_speed = result.backward_speed * oneway_multiplier
   end

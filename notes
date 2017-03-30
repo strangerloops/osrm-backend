@@ -27,24 +27,28 @@ navy yard to home              : http://34.208.243.221:5000/route/v1/bike/-73.97
 vvv   turn penalty = 60  vvv
 ***********
 
-BRL to court square (via navy yard): http://34.208.243.221:5000/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892 / ""
+BRL to court square (via navy yard): http://34.208.243.221:1234/route/v1/bike/-73.993003,40.688901;-73.943676,40.747892 / ""
 
 home        : -73.9240875,40.6972668
 thoughtworks: -73.9848745,40.7446828
 brl         : -73.993003,40.6889011
 navy yard   : -73.9747897,40.6979747
 
-home to thoughtworks           : http://34.208.243.221:5000/route/v1/bike/-73.9240875,40.6972668;-73.9848745,40.7446828 / ""
+home to thoughtworks           : http://34.208.243.221:1234/route/v1/bike/-73.9240875,40.6972668;-73.9848745,40.7446828 / ""
 
-thoughtworks to home           : http://34.208.243.221:5000/route/v1/bike/-73.9848745,40.7446828;-73.9240875,40.6972668 /
+thoughtworks to home           : http://34.208.243.221:1234/route/v1/bike/-73.9848745,40.7446828;-73.9240875,40.6972668 /
 ""
 
-home to BRL                    : http://34.208.243.221:5000/route/v1/bike/-73.9240875,40.6972668;-73.993003,40.6889011 /
+home to BRL                    : http://34.208.243.221:1234/route/v1/bike/-73.9240875,40.6972668;-73.993003,40.6889011 /
 "wukwFvgebMRc@zQnQyDpIlG|FpZznFiBxzAnF|CiDrLpNpIsKl_@~@^"
-BRL to home                    : http://34.208.243.221:5000/route/v1/bike/-73.993003,40.6889011;-73.9240875,40.6972668 /
+BRL to home                    : http://34.208.243.221:1234/route/v1/bike/-73.993003,40.6889011;-73.9240875,40.6972668 /
 ""
 
-home to navy yard              : http://34.208.243.221:5000/route/v1/bike/-73.9240875,40.6972668;-73.9747897,40.6979747 /
+home to navy yard              : http://34.208.243.221:1234/route/v1/bike/-73.9240875,40.6972668;-73.9747897,40.6979747 /
 ""
-navy yard to home              : http://34.208.243.221:5000/route/v1/bike/-73.9747897,40.6979747;-73.9240875,40.6972668 /
+navy yard to home              : http://34.208.243.221:1234/route/v1/bike/-73.9747897,40.6979747;-73.9240875,40.6972668 /
 ""
+
+-----------
+
+one-way secondary should only get one-way bonus if there's a bike lane
