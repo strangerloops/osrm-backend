@@ -96,6 +96,13 @@ local profile = {
   	'shared'
   },
 
+  dedicated_infra = Set {
+    'track',
+    'lane',
+    'opposite_lane',
+    'opposite_track'
+  },
+
   unsafe_highway_list = Set {
   	'primary',
    	'secondary',
@@ -455,12 +462,16 @@ function way_function (way, result)
     result.backward_speed = result.backward_speed * profile.cycleway_modifiers[cycleway_right]
   end
 
-  if onewayClass == "yes" or onewayClass == "1" or onewayClass == "true" or oneway == "yes" or oneway == "1" or oneway == "true" then
+  local is_oneway = onewayClass == "yes" or onewayClass == "1" or onewayClass == "true" or oneway == "yes" or oneway == "1" or oneway == "true"
+  local is_truck_route = truck_route == "local" or truck_route == "destination" or truck_route == "designated"
+  local has_bike_lane = profile.dedicated_infra[cycleway] or profile.dedicated_infra[cycleway_left] or profile.dedicated_infra[cycleway_right]
+
+  if is_oneway and (data.highway == 'residential' or has_bike_lane) then
     result.forward_speed = result.forward_speed * oneway_multiplier
     result.backward_speed = result.backward_speed * oneway_multiplier
   end
 
-  if truck_route == "local" or truck_route == "destination" or truck_route == "designated" then
+  if is_truck_route
     result.forward_speed = result.forward_speed * truck_route_multiplier
     result.backward_speed = result.backward_speed * truck_route_multiplier
   end
