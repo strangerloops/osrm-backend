@@ -463,7 +463,7 @@ function way_function (way, result)
   end
 
   local is_oneway = onewayClass == "yes" or onewayClass == "1" or onewayClass == "true" or oneway == "yes" or oneway == "1" or oneway == "true"
-  local is_truck_route = truck_route == "local" or truck_route == "destination" or truck_route == "designated" then
+  local is_truck_route = truck_route == "local" or truck_route == "destination" or truck_route == "designated"
   local has_bike_lane = profile.dedicated_infra[cycleway] or profile.dedicated_infra[cycleway_left] or profile.dedicated_infra[cycleway_right]
 
   if is_oneway then
