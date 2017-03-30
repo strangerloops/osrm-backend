@@ -471,7 +471,7 @@ function way_function (way, result)
     result.backward_speed = result.backward_speed * oneway_multiplier
   end
 
-  if is_truck_route and (!has_bike_lane or !is_oneway) then
+  if is_truck_route and ((not has_bike_lane) or (not is_oneway)) then
     result.forward_speed = result.forward_speed * truck_route_multiplier
     result.backward_speed = result.backward_speed * truck_route_multiplier
   end
