@@ -125,8 +125,8 @@ local profile = {
     living_street = default_speed * 1.2,
     road = default_speed,
     service = default_speed,
-    track = 12,
-    path = 12
+    track = default_speed * 1.51,
+    path = default_speed
   },
 
   cycleway_modifiers = {
