@@ -16,10 +16,10 @@ properties.weight_name                   = 'duration'
 --properties.weight_name                   = 'cyclability'
 
 
-local default_speed = 16
+local default_speed = 15
 local walking_speed = 6
 
-local oneway_multiplier = 1.2
+local oneway_multiplier = 1.15
 local truck_route_multiplier = 0.82
 
 local profile = {
@@ -28,7 +28,7 @@ local profile = {
   oneway_handling           = true,
   traffic_light_penalty     = 2,
   u_turn_penalty            = 20,
-  turn_penalty              = 7,
+  turn_penalty              = 6.5,
   turn_bias                 = 1.4,
 
   -- reduce the driving speed by 30% for unsafe roads
@@ -116,8 +116,8 @@ local profile = {
     cycleway = default_speed * 1.45,
     primary = default_speed * 0.70,
     primary_link = default_speed * 0.70,
-    secondary = default_speed * 0.83,
-    secondary_link = default_speed * 0.83,
+    secondary = default_speed * 0.85,
+    secondary_link = default_speed * 0.85,
     tertiary = default_speed,
     tertiary_link = default_speed,
     residential = default_speed * 1.075,
@@ -135,7 +135,7 @@ local profile = {
     sharrow = 1.0,
     share_busway = 1.05,
     opposite_lane = 1.1,
-    lane = 1.17,
+    lane = 1.15,
     opposite_track = 1.4,
     track = 1.45
   },
